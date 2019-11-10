@@ -12,7 +12,7 @@
 
 int main(int argc, const char * argv[]) {
     std::cout << "PERSON\n";
-    Person p(203861508);
+    Person p(/*vk user id*/);
     Pool pool;
     pool.SetStart(p);
     pool.SetDepth(1);
