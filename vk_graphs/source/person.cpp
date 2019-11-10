@@ -68,7 +68,7 @@ void Person::GetGeneral()
 {
     std::string request = "https://api.vk.com/method/users.get?v=5.92&fields=photo_max_orig,is_closed,bdate,country,city,home_town,schools,universities&user_ids=";
     request += std::to_string(m_id);
-    request += "&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48";
+    request += "&access_token=/*access token*/";
     json j = json::parse(PerformCurlRequest(request));
     
     //std::cout << "\tfn||";
@@ -215,7 +215,7 @@ void Person::GetGeneral()
 
 void Person::GetGroups()
 {
-    std::string request = "https://api.vk.com/method/users.getSubscriptions?v=5.92&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48&count=200&extended=1&fields=members_count&user_id=";
+    std::string request = "https://api.vk.com/method/users.getSubscriptions?v=5.92&access_token=/*access token*/&count=200&extended=1&fields=members_count&user_id=";
     request += std::to_string(m_id);
     json j = json::parse(PerformCurlRequest(request));
     if (j["error"] == nullptr)
@@ -264,7 +264,7 @@ void Person::GetGroups()
 
 void Person::GetFriends()
 {
-    std::string request = "https://api.vk.com/method/friends.get?v=5.92&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48&count=9999&user_id=";
+    std::string request = "https://api.vk.com/method/friends.get?v=5.92&access_token=/*access token*/&count=9999&user_id=";
     request += std::to_string(m_id);
     //std::cout << "\tgather friends for " << m_id << std::endl;
     json a = json::parse(PerformCurlRequest(request));
@@ -300,7 +300,7 @@ void Person::GetLinks()
 
 void Person::GetWallPosts()
 {
-    std::string request = "https://api.vk.com/method/wall.get?v=5.92&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48&count=10&owner_id=";
+    std::string request = "https://api.vk.com/method/wall.get?v=5.92&access_token=/*access token*/&count=10&owner_id=";
     request += std::to_string(m_id);
     json j = json::parse(PerformCurlRequest(request));
     if (j["error"] == nullptr)
@@ -333,7 +333,7 @@ void Person::GetWallPosts()
 
 void Person::GetWallLikes()
 {
-    std::string request = "https://api.vk.com/method/likes.getList?v=5.92&type=post&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48&count=100&owner_id=";
+    std::string request = "https://api.vk.com/method/likes.getList?v=5.92&type=post&access_token=/*access token*/&count=100&owner_id=";
     request += std::to_string(m_id);
     request += "&item_id=";
     for (int i = 0; i < m_wallPosts.size(); i++)
@@ -376,7 +376,7 @@ void Person::GetWallLikes()
 
 void Person::GetWallComments()
 {
-    std::string request = "https://api.vk.com/method/wall.getComments?v=5.92&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48&sort=asc&need_likes=0&count=5&owner_id=";
+    std::string request = "https://api.vk.com/method/wall.getComments?v=5.92&access_token=/*access token*/&sort=asc&need_likes=0&count=5&owner_id=";
     request += std::to_string(m_id);
     request += "&post_id=";
     for (int i = 0; i < m_wallPosts.size(); i++)
@@ -410,7 +410,7 @@ void Person::GetWallComments()
 
 void Person::GetPhotos()
 {
-    std::string request = "https://api.vk.com/method/photos.get?v=5.92&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48&album_id=profile&rev=1&count=2&owner_id=";
+    std::string request = "https://api.vk.com/method/photos.get?v=5.92&access_token=/*access token*/&album_id=profile&rev=1&count=2&owner_id=";
     request += std::to_string(m_id);
     json j = json::parse(PerformCurlRequest(request));
     if (j["error"] == nullptr)
@@ -438,7 +438,7 @@ void Person::GetPhotos()
 
 void Person::GetPhotosLikes()
 {
-    std::string request = "https://api.vk.com/method/likes.getList?v=5.92&type=photo&access_token=7aec11b67aec11b67aec11b6147a8b1cb677aec7aec11b6210289ad353de1fa28ed6b48&count=100&owner_id=";
+    std::string request = "https://api.vk.com/method/likes.getList?v=5.92&type=photo&access_token=/*ACCESS TOKEN*/&count=100&owner_id=";
     request += std::to_string(m_id);
     request += "&item_id=";
     for (int i = 0; i < m_photos.size(); i++)
